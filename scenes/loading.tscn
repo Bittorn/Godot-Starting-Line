@@ -1,0 +1,161 @@
+[gd_scene load_steps=18 format=3 uid="uid://jdpogyd11v3r"]
+
+[ext_resource type="Texture2D" uid="uid://tlaqyq6gsyw0" path="res://sprites/loading/loading.png" id="1_yc7uc"]
+[ext_resource type="Script" uid="uid://dm2ej41klp6om" path="res://scripts/loading_screen.gd" id="2_yc7uc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc7uc"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhqfv"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_101rs"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt702"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ytni"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxo4k"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c856a"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cqd5"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b8ay"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp7cq"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc112"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ay1x"]
+atlas = ExtResource("1_yc7uc")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xn74e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc7uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhqfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_101rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt702")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ytni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxo4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c856a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cqd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b8ay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp7cq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kc112")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ay1x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir5ef"]
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 0)
+border_color = Color(0.9372549, 0.9372549, 0.9372549, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc7uc"]
+bg_color = Color(0.9372549, 0.9372549, 0.9372549, 1)
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
+[node name="Control" type="Control" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect/Control"]
+position = Vector2(20, 20)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_xn74e")
+autoplay = "default"
+frame_progress = 0.21415256
+
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = 260.0
+offset_right = 250.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_ir5ef")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yc7uc")
+show_percentage = false
+script = ExtResource("2_yc7uc")
+disabled = true

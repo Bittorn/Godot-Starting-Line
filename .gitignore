@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# I hate MacOS
+.DS_Store
+
+# Custom exports
+exports
