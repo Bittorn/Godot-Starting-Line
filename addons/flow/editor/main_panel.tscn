@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://431hatrlfpat"]
+[gd_scene load_steps=4 format=3 uid="uid://431hatrlfpat"]
+
+[ext_resource type="Texture2D" uid="uid://680dnxjqvduc" path="res://addons/flow/icon.svg" id="1_2hupu"]
+[ext_resource type="Texture2D" uid="uid://dlccaltolmy5p" path="res://addons/flow/editor/search.svg" id="1_gui4w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_irj4o"]
 
 [node name="MainPanel" type="Control"]
 layout_mode = 3
@@ -9,3 +14,144 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_constants/minimum_grab_thickness = 0
+split_offset = 56
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="CenterContainer" type="Control" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/CenterContainer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 8
+
+[node name="MenuBar" type="MenuBar" parent="VSplitContainer/CenterContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+flat = true
+prefer_global_menu = false
+
+[node name="FileMenu" type="PopupMenu" parent="VSplitContainer/CenterContainer/MarginContainer/MenuBar"]
+oversampling_override = 1.0
+title = "File"
+size = Vector2i(180, 205)
+item_count = 9
+item_0/text = "New Flow..."
+item_0/id = 0
+item_1/text = "Open..."
+item_1/id = 1
+item_2/id = 2
+item_2/separator = true
+item_3/text = "Save"
+item_3/id = 3
+item_4/text = "Save as..."
+item_4/id = 4
+item_5/text = "Save All"
+item_5/id = 5
+item_6/id = 6
+item_6/separator = true
+item_7/text = "Export as JSON..."
+item_7/id = 7
+item_8/text = "Export as Ink..."
+item_8/id = 8
+
+[node name="EditMenu" type="PopupMenu" parent="VSplitContainer/CenterContainer/MarginContainer/MenuBar"]
+oversampling_override = 1.0
+title = "Edit"
+size = Vector2i(100, 147)
+item_count = 6
+item_0/text = "Undo"
+item_0/id = 0
+item_1/text = "Redo"
+item_1/id = 1
+item_2/id = 2
+item_2/separator = true
+item_3/text = "Cut"
+item_3/id = 3
+item_4/text = "Copy"
+item_4/id = 4
+item_5/text = "Paste"
+item_5/id = 5
+
+[node name="FlowMenu" type="PopupMenu" parent="VSplitContainer/CenterContainer/MarginContainer/MenuBar"]
+oversampling_override = 1.0
+title = "Flow"
+size = Vector2i(228, 205)
+item_count = 6
+item_0/text = "Create Variable"
+item_0/id = 0
+item_1/text = "Create Temporary Variable"
+item_1/id = 1
+item_2/id = 2
+item_2/separator = true
+item_3/text = "Insert If Statement"
+item_3/id = 3
+item_4/text = "Insert Pipe"
+item_4/id = 4
+item_5/text = "Insert Drain"
+item_5/id = 5
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+split_offset = 240
+
+[node name="Control" type="Control" parent="VSplitContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="VSplitContainer/HSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_constants/minimum_grab_thickness = 0
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="SearchBar" type="LineEdit" parent="VSplitContainer/HSplitContainer/Control/VSplitContainer"]
+layout_mode = 2
+placeholder_text = "Filter Flows"
+right_icon = ExtResource("1_gui4w")
+
+[node name="Sidebar" type="ItemList" parent="VSplitContainer/HSplitContainer/Control/VSplitContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_irj4o")
+item_count = 2
+item_0/text = "test"
+item_0/icon = ExtResource("1_2hupu")
+item_1/text = "test2"
+item_1/icon = ExtResource("1_2hupu")
+
+[node name="Mainbar" type="MarginContainer" parent="VSplitContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 16
+
+[node name="CodeEdit" type="CodeEdit" parent="VSplitContainer/HSplitContainer/Mainbar"]
+layout_mode = 2
+placeholder_text = "Once upon a time..."
+wrap_mode = 1
+indent_wrapped_lines = true
+line_folding = true
+gutters_draw_line_numbers = true

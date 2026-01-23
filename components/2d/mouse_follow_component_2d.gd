@@ -2,7 +2,7 @@ class_name MouseFollowComponent2D extends Component2D
 
 @export var use_global_position := false
 
-@export_category("Smoothing")
+@export_group("Smoothing")
 @export var enable_smoothing := false
 @export var smoothing := 16.0
 

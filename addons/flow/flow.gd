@@ -3,30 +3,30 @@ extends EditorPlugin
 
 const MAIN_PANEL: PackedScene = preload("uid://431hatrlfpat")
 const PLUGIN_NAME := "Flow"
-const PLUGIN_ICON_PATH := ""
+const PLUGIN_ICON_PATH := "uid://680dnxjqvduc"
 
-var editor_view: Control
+var dock: Control
 
 #region Plugin Setup
 
 func _enable_plugin() -> void:
-	# Add autoloads here.
 	pass
-
 
 func _disable_plugin() -> void:
-	# Remove autoloads here.
-	pass
-
+	remove_autoload_singleton(PLUGIN_NAME)
 
 func _enter_tree() -> void:
-	# Initialization of the plugin goes here.
-	pass
-
+	add_autoload_singleton(PLUGIN_NAME, "res://addons/flow/editor/autoload.tscn")
+	dock = MAIN_PANEL.instantiate()
+	
+	## Add to top bar with Script and AssetLib and such
+	EditorInterface.get_editor_main_screen().add_child(dock)
+	
+	_make_visible(false)
 
 func _exit_tree() -> void:
-	# Clean-up of the plugin goes here.
-	pass
+	if dock:
+		dock.queue_free()
 
 #endregion
 
@@ -43,5 +43,19 @@ func _get_plugin_path() -> String:
 
 func _get_plugin_icon() -> Texture2D:
 	return load(PLUGIN_ICON_PATH)
+
+#endregion
+
+#region Editor Interaction
+
+func _make_visible(visible: bool) -> void:
+	if !dock: return
+
+	if dock.get_parent() is Window and visible:
+		EditorInterface.set_main_screen_editor("Script")
+		dock.show()
+		dock.get_parent().grab_focus()
+	else:
+		dock.visible = visible
 
 #endregion

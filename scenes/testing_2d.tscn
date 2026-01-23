@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c14vq51dyy4ov"]
 
-[ext_resource type="Script" uid="uid://dpruroytsefwy" path="res://mouse_follow_component_2d.gd" id="1_tnwrl"]
+[ext_resource type="Script" uid="uid://dpruroytsefwy" path="res://components/2d/mouse_follow_component_2d.gd" id="1_tnwrl"]
 [ext_resource type="Script" uid="uid://bh4cnhn4doaqp" path="res://components/random_modulate_component.gd" id="2_58wrc"]
 
 [sub_resource type="Gradient" id="Gradient_58wrc"]

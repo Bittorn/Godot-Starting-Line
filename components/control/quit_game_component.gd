@@ -11,6 +11,5 @@ func _ready():
 	else:
 		push_warning("Not a child of BaseButton, and may not function as intended.")
 
-## Quits the application
 func _quit():
 	get_tree().quit()
