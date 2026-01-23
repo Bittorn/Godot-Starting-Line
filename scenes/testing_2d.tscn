@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c14vq51dyy4ov"]
+[gd_scene load_steps=5 format=3 uid="uid://c14vq51dyy4ov"]
 
 [ext_resource type="Script" uid="uid://dpruroytsefwy" path="res://mouse_follow_component_2d.gd" id="1_tnwrl"]
+[ext_resource type="Script" uid="uid://bh4cnhn4doaqp" path="res://components/random_modulate_component.gd" id="2_58wrc"]
 
 [sub_resource type="Gradient" id="Gradient_58wrc"]
-colors = PackedColorArray(1, 0, 0, 1, 0, 1, 1, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vjdhv"]
 gradient = SubResource("Gradient_58wrc")
@@ -18,5 +19,8 @@ texture = SubResource("GradientTexture2D_vjdhv")
 
 [node name="MouseFollowComponent2D" type="Node" parent="Sprite2D"]
 script = ExtResource("1_tnwrl")
-enable_smoothing = true
 metadata/_custom_type_script = "uid://dpruroytsefwy"
+
+[node name="RandomModulateComponent" type="Node" parent="Sprite2D"]
+script = ExtResource("2_58wrc")
+metadata/_custom_type_script = "uid://bh4cnhn4doaqp"
