@@ -158,4 +158,3 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ir5ef")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yc7uc")
 show_percentage = false
 script = ExtResource("2_yc7uc")
-disabled = true
