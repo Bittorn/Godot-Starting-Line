@@ -1,0 +1,49 @@
+# Title: Setting an Example
+# Author: Bittorn
+# License: CC0
+# Created: 24 Jan 2026
+# Format Version: 1
+
+#region Setup
+
+# Declaring a variable
+# It's recommended to declare the variable type, but not strictly necessary
+# Since the variable is not inside a branch, it is treated as global
+$speaker: String
+
+#endregion
+
+== INTRODUCTION
+
+# Setting a variable
+$speaker = "Bittorn"
+
+# Since this variable has not been seen before, it is declared
+# Here, type is inferred to be String
+# Variables declared inside branches are treated as local variables
+$player = "Bittorn"
+
+Hello there!
+Welcome to Flow, a simple code-first dialog system.
+
+    - How does it work?
+    - Could you repeat that?
+        Gotcha.
+        => INTRODUCTION
+    - What does code-first mean?
+        => CODE-FIRST
+    - {player == speaker} Hey, I'm Bittorn too!
+        Really? What a coincidence!
+    - I'm already familiar
+        Great! Guess I'll take my leave then.
+        => END
+
+* Let's continue.
+
+== HOW IT WORKS
+
+text here
+
+== CODE-FIRST
+
+text here
