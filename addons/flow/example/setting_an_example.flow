@@ -9,19 +9,14 @@ Format Version: 1
 #region Setup
 
 # Declaring a variable
-# It's recommended to declare the variable type, but not strictly necessary
 # Since the variable is not inside a branch, it is treated as global
-$speaker: String
+# It's type is inferred as String
+$speaker = "Bittorn"
 
 #endregion
 
 == INTRODUCTION
 
-# Setting a variable
-$speaker = "Bittorn"
-
-# Since this variable has not been seen before, it is declared
-# Here, type is inferred to be String
 # Variables declared inside branches are treated as local variables
 $player = "Bittorn"
 
