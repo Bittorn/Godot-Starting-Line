@@ -2,10 +2,12 @@
 extends EditorPlugin
 
 const MAIN_PANEL: PackedScene = preload("uid://431hatrlfpat")
+const IMPORT_PLUGIN := preload("uid://bqlkc2qbmu7rg")
 const PLUGIN_NAME := "Flow"
 const PLUGIN_ICON_PATH := "uid://680dnxjqvduc"
 
 var dock: Control
+var import_plugin
 
 #region Plugin Setup
 
@@ -16,6 +18,8 @@ func _disable_plugin() -> void:
 	remove_autoload_singleton(PLUGIN_NAME)
 
 func _enter_tree() -> void:
+	import_plugin = IMPORT_PLUGIN.new()
+	add_import_plugin(import_plugin)
 	add_autoload_singleton(PLUGIN_NAME, "res://addons/flow/editor/autoload.tscn")
 	dock = MAIN_PANEL.instantiate()
 	
@@ -25,6 +29,9 @@ func _enter_tree() -> void:
 	_make_visible(false)
 
 func _exit_tree() -> void:
+	remove_import_plugin(import_plugin)
+	import_plugin = null
+	
 	if dock:
 		dock.queue_free()
 
