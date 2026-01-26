@@ -1,0 +1,14 @@
+[remap]
+
+importer="flow.fileimport"
+type="FlowFile"
+uid="uid://7nir5x3vtmla"
+path="res://.godot/imported/setting_an_example.flow-1fa8afb10b6973f1712da1f957b20064.tres"
+
+[deps]
+
+source_file="res://addons/flow/example/setting_an_example.flow"
+dest_files=["res://.godot/imported/setting_an_example.flow-1fa8afb10b6973f1712da1f957b20064.tres"]
+
+[params]
+
