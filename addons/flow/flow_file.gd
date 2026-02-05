@@ -11,9 +11,9 @@ var raw_text: String
 @export var license: String
 @export_range(1, LATEST_FORMAT_VERSION) var format_version: int
 
-# make sure that every parameter has a default value
+# Make sure that every parameter has a default value
 # or there will be problems with creating and editing
-# the resource via the inspector
+# the resource via the inspector.
 func _init(
 		p_text = "",
 		p_raw_text = "",
