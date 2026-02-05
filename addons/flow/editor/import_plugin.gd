@@ -37,6 +37,7 @@ func _import(source_file, save_path, options, platform_variants, gen_files):
 	var ignore := false
 	
 	var flow_file := FlowFile.new()
+	flow_file.raw_text = file.get_as_text()
 	
 	while file.get_position() < file.get_length():
 		var line = file.get_line().strip_edges()

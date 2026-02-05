@@ -15,16 +15,17 @@ func _enable_plugin() -> void:
 	pass
 
 func _disable_plugin() -> void:
-	remove_autoload_singleton(PLUGIN_NAME)
+	#remove_autoload_singleton(PLUGIN_NAME)
+	pass
 
 func _enter_tree() -> void:
 	import_plugin = IMPORT_PLUGIN.new()
 	add_import_plugin(import_plugin)
-	add_autoload_singleton(PLUGIN_NAME, "res://addons/flow/editor/autoload.tscn")
-	dock = MAIN_PANEL.instantiate()
+	#add_autoload_singleton(PLUGIN_NAME, "res://addons/flow/editor/autoload.tscn")
+	#dock = MAIN_PANEL.instantiate()
 	
 	## Add to top bar with Script and AssetLib and such
-	EditorInterface.get_editor_main_screen().add_child(dock)
+	#EditorInterface.get_editor_main_screen().add_child(dock)
 	
 	_make_visible(false)
 
@@ -40,7 +41,8 @@ func _exit_tree() -> void:
 #region Plugin Info
 
 func _has_main_screen() -> bool:
-	return true
+	#return true
+	return false
 
 func _get_plugin_name() -> String:
 	return PLUGIN_NAME
