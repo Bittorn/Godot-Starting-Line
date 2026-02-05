@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce2obk5e6yuiq"]
+[gd_scene format=3 uid="uid://ce2obk5e6yuiq"]
 
 [ext_resource type="Script" uid="uid://36cnh1j6l0a3" path="res://addons/flow/editor/autoload.gd" id="1_hcu70"]
 
-[node name="Autoload" type="Node"]
+[node name="Autoload" type="Node" unique_id=990404445]
 script = ExtResource("1_hcu70")

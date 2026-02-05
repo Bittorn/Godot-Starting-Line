@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://431hatrlfpat"]
+[gd_scene format=3 uid="uid://431hatrlfpat"]
 
 [ext_resource type="Texture2D" uid="uid://680dnxjqvduc" path="res://addons/flow/icon.svg" id="1_2hupu"]
 [ext_resource type="Texture2D" uid="uid://dlccaltolmy5p" path="res://addons/flow/editor/search.svg" id="1_gui4w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_irj4o"]
 
-[node name="MainPanel" type="Control"]
+[node name="MainPanel" type="Control" unique_id=1035271889]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VSplitContainer" type="VSplitContainer" parent="."]
+[node name="VSplitContainer" type="VSplitContainer" parent="." unique_id=1295085342]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,14 +24,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 theme_override_constants/minimum_grab_thickness = 0
-split_offset = 56
+split_offsets = PackedInt32Array(56)
 dragging_enabled = false
 dragger_visibility = 1
+split_offset = 56
 
-[node name="CenterContainer" type="Control" parent="VSplitContainer"]
+[node name="CenterContainer" type="Control" parent="VSplitContainer" unique_id=1735647679]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/CenterContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/CenterContainer" unique_id=1740360433]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -44,13 +45,13 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 8
 
-[node name="MenuBar" type="MenuBar" parent="VSplitContainer/CenterContainer/MarginContainer"]
+[node name="MenuBar" type="MenuBar" parent="VSplitContainer/CenterContainer/MarginContainer" unique_id=607851409]
 layout_mode = 2
 theme_override_constants/h_separation = 12
 flat = true
 prefer_global_menu = false
 
-[node name="FileMenu" type="PopupMenu" parent="VSplitContainer/CenterContainer/MarginContainer/MenuBar"]
+[node name="FileMenu" type="PopupMenu" parent="VSplitContainer/CenterContainer/MarginContainer/MenuBar" unique_id=1368242990]
 oversampling_override = 1.0
 title = "File"
 size = Vector2i(180, 205)
@@ -74,7 +75,7 @@ item_7/id = 7
 item_8/text = "Export as Ink..."
 item_8/id = 8
 
-[node name="EditMenu" type="PopupMenu" parent="VSplitContainer/CenterContainer/MarginContainer/MenuBar"]
+[node name="EditMenu" type="PopupMenu" parent="VSplitContainer/CenterContainer/MarginContainer/MenuBar" unique_id=1168741254]
 oversampling_override = 1.0
 title = "Edit"
 size = Vector2i(100, 147)
@@ -92,7 +93,7 @@ item_4/id = 4
 item_5/text = "Paste"
 item_5/id = 5
 
-[node name="FlowMenu" type="PopupMenu" parent="VSplitContainer/CenterContainer/MarginContainer/MenuBar"]
+[node name="FlowMenu" type="PopupMenu" parent="VSplitContainer/CenterContainer/MarginContainer/MenuBar" unique_id=2103117658]
 oversampling_override = 1.0
 title = "Flow"
 size = Vector2i(228, 205)
@@ -110,15 +111,16 @@ item_4/id = 4
 item_5/text = "Insert Drain"
 item_5/id = 5
 
-[node name="HSplitContainer" type="HSplitContainer" parent="VSplitContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="VSplitContainer" unique_id=2022679226]
 layout_mode = 2
 theme_override_constants/separation = 2
+split_offsets = PackedInt32Array(240)
 split_offset = 240
 
-[node name="Control" type="Control" parent="VSplitContainer/HSplitContainer"]
+[node name="Control" type="Control" parent="VSplitContainer/HSplitContainer" unique_id=136139923]
 layout_mode = 2
 
-[node name="VSplitContainer" type="VSplitContainer" parent="VSplitContainer/HSplitContainer/Control"]
+[node name="VSplitContainer" type="VSplitContainer" parent="VSplitContainer/HSplitContainer/Control" unique_id=1109138594]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,12 +132,12 @@ theme_override_constants/minimum_grab_thickness = 0
 dragging_enabled = false
 dragger_visibility = 1
 
-[node name="SearchBar" type="LineEdit" parent="VSplitContainer/HSplitContainer/Control/VSplitContainer"]
+[node name="SearchBar" type="LineEdit" parent="VSplitContainer/HSplitContainer/Control/VSplitContainer" unique_id=1580480145]
 layout_mode = 2
 placeholder_text = "Filter Flows"
 right_icon = ExtResource("1_gui4w")
 
-[node name="Sidebar" type="ItemList" parent="VSplitContainer/HSplitContainer/Control/VSplitContainer"]
+[node name="Sidebar" type="ItemList" parent="VSplitContainer/HSplitContainer/Control/VSplitContainer" unique_id=501160135]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_irj4o")
 item_count = 2
@@ -144,11 +146,11 @@ item_0/icon = ExtResource("1_2hupu")
 item_1/text = "test2"
 item_1/icon = ExtResource("1_2hupu")
 
-[node name="Mainbar" type="MarginContainer" parent="VSplitContainer/HSplitContainer"]
+[node name="Mainbar" type="MarginContainer" parent="VSplitContainer/HSplitContainer" unique_id=874206254]
 layout_mode = 2
 theme_override_constants/margin_right = 16
 
-[node name="CodeEdit" type="CodeEdit" parent="VSplitContainer/HSplitContainer/Mainbar"]
+[node name="CodeEdit" type="CodeEdit" parent="VSplitContainer/HSplitContainer/Mainbar" unique_id=749658487]
 layout_mode = 2
 placeholder_text = "Once upon a time..."
 wrap_mode = 1

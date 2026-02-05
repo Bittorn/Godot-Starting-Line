@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c14vq51dyy4ov"]
+[gd_scene format=3 uid="uid://c14vq51dyy4ov"]
 
 [ext_resource type="Script" uid="uid://dpruroytsefwy" path="res://components/2d/mouse_follow_component_2d.gd" id="1_tnwrl"]
 [ext_resource type="Script" uid="uid://bh4cnhn4doaqp" path="res://components/random_modulate_component.gd" id="2_58wrc"]
@@ -12,15 +12,15 @@ width = 32
 height = 32
 fill_from = Vector2(0, 1)
 
-[node name="Testing2D" type="Node2D"]
+[node name="Testing2D" type="Node2D" unique_id=680503254]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1182063636]
 texture = SubResource("GradientTexture2D_vjdhv")
 
-[node name="MouseFollowComponent2D" type="Node" parent="Sprite2D"]
+[node name="MouseFollowComponent2D" type="Node" parent="Sprite2D" unique_id=405280282]
 script = ExtResource("1_tnwrl")
 metadata/_custom_type_script = "uid://dpruroytsefwy"
 
-[node name="RandomModulateComponent" type="Node" parent="Sprite2D"]
+[node name="RandomModulateComponent" type="Node" parent="Sprite2D" unique_id=1399911120]
 script = ExtResource("2_58wrc")
 metadata/_custom_type_script = "uid://bh4cnhn4doaqp"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://jdpogyd11v3r"]
+[gd_scene format=3 uid="uid://jdpogyd11v3r"]
 
 [ext_resource type="Texture2D" uid="uid://tlaqyq6gsyw0" path="res://sprites/loading/loading.png" id="1_yc7uc"]
 [ext_resource type="Script" uid="uid://dm2ej41klp6om" path="res://scripts/loading_screen.gd" id="2_yc7uc"]
@@ -103,7 +103,7 @@ anti_aliasing = false
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc7uc"]
 bg_color = Color(0.9372549, 0.9372549, 0.9372549, 1)
 
-[node name="Loading" type="Control"]
+[node name="Loading" type="Control" unique_id=2055761995]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,7 +111,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=108687301]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -120,7 +120,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 
-[node name="Control" type="Control" parent="ColorRect"]
+[node name="Control" type="Control" parent="ColorRect" unique_id=513324899]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -134,14 +134,14 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect/Control"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect/Control" unique_id=1826333958]
 position = Vector2(20, 20)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_xn74e")
 autoplay = "default"
 frame_progress = 0.21415256
 
-[node name="ProgressBar" type="ProgressBar" parent="ColorRect/Control"]
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect/Control" unique_id=312433008]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
