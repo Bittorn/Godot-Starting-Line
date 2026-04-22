@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dwiyt2w8u8uuc"]
+
+[ext_resource type="Script" uid="uid://dnvq0dvw5rrir" path="res://components/3d/camera_rpg_component.gd" id="1_nt187"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nt187"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_yn1bu"]
+sky_material = SubResource("ProceduralSkyMaterial_nt187")
+
+[sub_resource type="Environment" id="Environment_ph614"]
+background_mode = 2
+sky = SubResource("Sky_yn1bu")
+tonemap_mode = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1b1gj"]
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nt187"]
+width = 1024
+height = 1024
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_1b1gj")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn1bu"]
+albedo_color = Color(0.44551164, 0.5269207, 0.39765814, 1)
+albedo_texture = SubResource("NoiseTexture2D_nt187")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ph614"]
+material = SubResource("StandardMaterial3D_yn1bu")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5j234"]
+
+[node name="Testing3d" type="Node3D" unique_id=99178851]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=210393608]
+environment = SubResource("Environment_ph614")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1488151717]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1049831963]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 61, 2)
+
+[node name="CameraRPGComponent" type="Node" parent="Camera3D" unique_id=1486218197]
+script = ExtResource("1_nt187")
+metadata/_custom_type_script = "uid://dnvq0dvw5rrir"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=497118892]
+transform = Transform3D(6.36116, 0, 0, 0, 1, 0, 0, 0, 6.76682, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ph614")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1702004004]
+transform = Transform3D(0.6293021, 0, 0, 0, 0.48606187, 0, 0, 0, 0.5669763, 0, 0.48428404, 0)
+mesh = SubResource("CylinderMesh_5j234")
