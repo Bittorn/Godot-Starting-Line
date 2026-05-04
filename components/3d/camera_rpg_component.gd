@@ -38,11 +38,15 @@ func _process(delta: float) -> void:
 	var target = root.position
 	target.y = targetY
 	
+	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	target.x += input_dir.x * target.y / 8
+	target.z += input_dir.y * target.y / 8
+	
 	var targetRotation = deg_to_rad(_do_rotation())
 	
 	if enable_smoothing:
 		root.position = lerp(root.position, target, smoothing * delta)
-		root.rotation.x = lerp(root.rotation.x, targetRotation, smoothing / 1.2 * delta)
+		root.rotation.x = lerp(root.rotation.x, targetRotation, smoothing * delta)
 	else:
 		root.position = target
 		root.rotation.x = targetRotation
