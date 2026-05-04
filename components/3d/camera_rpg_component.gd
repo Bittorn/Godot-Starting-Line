@@ -5,6 +5,7 @@ class_name CameraRPGComponent extends Component3D
 
 @export var startRotation = -5.0
 @export var endRotation = -90.0
+@export var rotationCurve = 0.12
 
 @export var beginY = 12.0
 
@@ -31,7 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _do_rotation() -> float:
 	var weight = (targetY - startY) / (endY - startY)
-	var targetRotation = lerp(startRotation, endRotation, ease(weight, 0.12))
+	var targetRotation = lerp(startRotation, endRotation, ease(weight, rotationCurve))
 	return targetRotation
 
 func _process(delta: float) -> void:
@@ -39,8 +40,8 @@ func _process(delta: float) -> void:
 	target.y = targetY
 	
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	target.x += input_dir.x * target.y / 8
-	target.z += input_dir.y * target.y / 8
+	target.x += input_dir.x * max(target.y / 10, 0.3)
+	target.z += input_dir.y * max(target.y / 10, 0.3)
 	
 	var targetRotation = deg_to_rad(_do_rotation())
 	

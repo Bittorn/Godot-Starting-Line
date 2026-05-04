@@ -47,6 +47,8 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6
 
 [node name="CameraRPGComponent" type="Node" parent="Camera3D" unique_id=1486218197]
 script = ExtResource("1_nt187")
+endY = 21.0
+rotationCurve = 0.16
 metadata/_custom_type_script = "uid://dnvq0dvw5rrir"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=497118892]
