@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dsxgllk1blkob"]
+
+[ext_resource type="Shader" uid="uid://m388fuleyy04" path="res://shaders/1bit_dither_shader.gdshader" id="1_tihg8"]
+
+[resource]
+shader = ExtResource("1_tihg8")
+shader_parameter/dithering = true
+shader_parameter/dithering_size = 16
+shader_parameter/resolution_scale = 2
+shader_parameter/threshold = 80.0
+shader_parameter/white = Color(0.6861275, 0.7761447, 0.8335376, 1)
+shader_parameter/black = Color(0, 0, 0, 1)

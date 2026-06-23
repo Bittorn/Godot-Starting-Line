@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dwiyt2w8u8uuc"]
 
-[ext_resource type="Script" uid="uid://dnvq0dvw5rrir" path="res://components/3d/camera_rpg_component.gd" id="1_nt187"]
+[ext_resource type="Script" uid="uid://c7aoxearmmiuh" path="res://components/3d/player_component.gd" id="1_nt187"]
+[ext_resource type="Material" uid="uid://dsxgllk1blkob" path="res://shaders/1bit_dither_shader.tres" id="2_yn1bu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nt187"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,7 +32,11 @@ albedo_texture = SubResource("NoiseTexture2D_nt187")
 [sub_resource type="PlaneMesh" id="PlaneMesh_ph614"]
 material = SubResource("StandardMaterial3D_yn1bu")
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_5j234"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nt187"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g2els"]
+height = 1.6
 
 [node name="Testing3d" type="Node3D" unique_id=99178851]
 
@@ -42,19 +47,43 @@ environment = SubResource("Environment_ph614")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1049831963]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 61, 2)
-
-[node name="CameraRPGComponent" type="Node" parent="Camera3D" unique_id=1486218197]
-script = ExtResource("1_nt187")
-endY = 21.0
-rotationCurve = 0.16
-metadata/_custom_type_script = "uid://dnvq0dvw5rrir"
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=497118892]
 transform = Transform3D(6.36116, 0, 0, 0, 1, 0, 0, 0, 6.76682, 0, 0, 0)
 mesh = SubResource("PlaneMesh_ph614")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1702004004]
-transform = Transform3D(0.6293021, 0, 0, 0, 0.48606187, 0, 0, 0, 0.5669763, 0, 0.48428404, 0)
-mesh = SubResource("CylinderMesh_5j234")
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=798785194]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=586695253]
+shape = SubResource("ConcavePolygonShape3D_nt187")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1002831858]
+material = ExtResource("2_yn1bu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1154385676]
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Player" type="CharacterBody3D" parent="SubViewportContainer/SubViewport" unique_id=1831238470]
+
+[node name="PlayerComponent" type="Node" parent="SubViewportContainer/SubViewport/Player" unique_id=1027191374 node_paths=PackedStringArray("head", "camera")]
+script = ExtResource("1_nt187")
+head = NodePath("../Head")
+camera = NodePath("../Head/Camera3D")
+
+[node name="Head" type="Node3D" parent="SubViewportContainer/SubViewport/Player" unique_id=1625792386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Player/Head" unique_id=1164364204]
+current = true
+fov = 80.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Player" unique_id=1822899861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CylinderShape3D_g2els")

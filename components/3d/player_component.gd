@@ -22,6 +22,7 @@ var crouching: bool
 @export var enable_fov_change := true
 @export var enable_sprint := true
 @export var enable_crouch := true
+@export var enable_jump := true
 
 var base_fov: float
 @export var fov_change = 0.5
@@ -31,17 +32,22 @@ var head_y: float
 ## Get the gravity from the project settings.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var head: Node3D
-var camera: Camera3D
+## Overrides
+@export_group("Overrides")
+@export var head: Node3D
+@export var camera: Camera3D
 
 func _ready():
-	head = $"../Head"
-	camera = $"../Head/Camera3D"
-	base_fov = camera.fov
-	head_y = head.position.y
+	if head == null:
+		head = $"../Head"
+	if camera == null:
+		camera = $"../Head/Camera3D"
 	assert(head != null, "Head node not found")
 	assert(camera != null, "Camera3D not found as child of Head")
 	assert(root is CharacterBody3D, "Root node is not CharacterBody3D")
+	
+	base_fov = camera.fov
+	head_y = head.position.y
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event):
@@ -57,7 +63,7 @@ func _physics_process(delta):
 		root.velocity.y -= gravity * delta
 
 	# Handle jump
-	if Input.is_action_just_pressed("jump") and root.is_on_floor():
+	if Input.is_action_just_pressed("jump") and root.is_on_floor() and enable_jump:
 		root.velocity.y = JUMP_VELOCITY
 		if crouching:
 			root.velocity.y += (JUMP_VELOCITY * 0.5)
