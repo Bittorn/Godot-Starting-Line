@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dbbbwd00ub0kx"]
+
+[ext_resource type="Shader" uid="uid://b8jko16jloeji" path="res://shaders/multicolor_dither_shader.gdshader" id="1_e7hbk"]
+[ext_resource type="Texture2D" uid="uid://cmd7duoooqs0k" path="res://shaders/multicolor_texture_3.png" id="2_hunjl"]
+
+[resource]
+shader = ExtResource("1_e7hbk")
+shader_parameter/u_color_tex = ExtResource("2_hunjl")
+shader_parameter/u_bit_depth = 3
+shader_parameter/u_contrast = 1.6
+shader_parameter/u_offset = 0.0
+shader_parameter/u_dither_size = 2

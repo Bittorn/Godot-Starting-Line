@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dwiyt2w8u8uuc"]
 
 [ext_resource type="Script" uid="uid://c7aoxearmmiuh" path="res://components/3d/player_component.gd" id="1_nt187"]
-[ext_resource type="Material" uid="uid://dsxgllk1blkob" path="res://shaders/1bit_dither_shader.tres" id="2_yn1bu"]
+[ext_resource type="Material" uid="uid://dbbbwd00ub0kx" path="res://shaders/multicolor_dither_shader.tres" id="1_yn1bu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nt187"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -57,7 +57,7 @@ mesh = SubResource("PlaneMesh_ph614")
 shape = SubResource("ConcavePolygonShape3D_nt187")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1002831858]
-material = ExtResource("2_yn1bu")
+material = ExtResource("1_yn1bu")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
