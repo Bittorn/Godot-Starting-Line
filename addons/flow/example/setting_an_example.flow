@@ -1,23 +1,23 @@
-###
+///
 Title: Setting an Example
 Author: Bittorn
 License: CC0
 Created: 24 Jan 2026
 Format Version: 1
-###
+///
 
-#region Setup
+//region Setup
 
-# Declaring a variable
-# Since the variable is not inside a branch, it is treated as global
-# It's type is inferred as String
+// Declaring a variable
+// Since the variable is not inside a branch, it is treated as global
+// It's type is inferred as String
 $speaker = "Bittorn"
 
-#endregion
+//endregion
 
 == INTRODUCTION
 
-# Variables declared inside branches are treated as local variables
+// Variables declared inside branches are treated as local variables
 $player = "Bittorn"
 
 Hello there!
