@@ -21,7 +21,7 @@ func _disable_plugin() -> void:
 func _enter_tree() -> void:
 	import_plugin = IMPORT_PLUGIN.new()
 	add_import_plugin(import_plugin)
-	add_autoload_singleton(PLUGIN_NAME, "res://addons/flow/editor/autoload.tscn")
+	add_autoload_singleton("FlowEditor", "res://addons/flow/editor/flow_editor.tscn")
 	dock = MAIN_PANEL.instantiate()
 	
 	## Add to top bar with Script and AssetLib and such

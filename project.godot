@@ -21,7 +21,7 @@ config/icon="uid://bpeanp8vanedl"
 [autoload]
 
 GameManager="*res://scripts/game_manager.gd"
-Flow="*uid://ce2obk5e6yuiq"
+FlowEditor="*uid://b3lbf3x6xtyvo"
 
 [display]
 

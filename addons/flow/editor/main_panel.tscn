@@ -187,52 +187,6 @@ theme_override_constants/margin_bottom = 8
 [node name="CodeEdit" type="CodeEdit" parent="VSplitContainer/HSplitContainer/Mainbar" unique_id=749658487]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_b5lws")
-text = "///
-Title: Setting an Example
-Author: Bittorn
-License: CC0
-Created: 24 Jan 2026
-Format Version: 1
-///
-
-//region Setup
-
-// Declaring a variable
-// Since the variable is not inside a branch, it is treated as global
-// It's type is inferred as String
-$speaker = \"Bittorn\"
-
-//endregion
-
-== INTRODUCTION
-
-// Variables declared inside branches are treated as local variables
-$player = \"Bittorn\"
-
-Hello there!
-Welcome to Flow, a simple code-first dialog system.
-
-    - How does it work?
-    - Could you repeat that?
-        Gotcha.
-        => INTRODUCTION
-    - What does code-first mean?
-        => CODE-FIRST
-    - {player == speaker} Hey, I'm Bittorn too!
-        Really? What a coincidence!
-    - I'm already familiar
-        Great! Guess I'll take my leave then.
-        => END
-
-* Let's continue.
-
-== HOW IT WORKS
-
-text here
-
-== CODE-FIRST
-
-text here"
 placeholder_text = "Once upon a time..."
 wrap_mode = 1
 indent_wrapped_lines = true
@@ -244,6 +198,7 @@ line_folding = true
 line_length_guidelines = Array[int]([80])
 gutters_draw_line_numbers = true
 gutters_draw_fold_gutter = true
+delimiter_comments = Array[String](["/// ///", "//"])
 script = ExtResource("4_i71t6")
 
 [connection signal="id_pressed" from="VSplitContainer/CenterContainer/MarginContainer/MenuBar/FileMenu" to="VSplitContainer/CenterContainer/MarginContainer/MenuBar/FileMenu" method="_on_id_pressed"]

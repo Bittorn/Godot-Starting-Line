@@ -8,39 +8,53 @@ Format Version: 1
 
 //region Setup
 
-// Declaring a variable
-// Since the variable is not inside a branch, it is treated as global
+// To define a variable, use @var
+// Since this variable is not inside a branch, it is treated as global
+// You can also use @const for values that will not change
 // It's type is inferred as String
-$speaker = "Bittorn"
+@var speaker = "Bittorn"
+
+// To use an external variable, use @export_var
+// You can also use @export_const
+// Every external variable requires a default value
+// This is to ensure no runtime errors occur if the variable isn't set
+@export_var player = "Player"
 
 //endregion
 
-== INTRODUCTION
+=== INTRODUCTION
 
 // Variables declared inside branches are treated as local variables
-$player = "Bittorn"
+// This variable's type is inferred as Number
+@var age = 21
 
 Hello there!
 Welcome to Flow, a simple code-first dialog system.
 
-    - How does it work?
-    - Could you repeat that?
+    + How does it work?
+    + Could you repeat that?
         Gotcha.
         => INTRODUCTION
-    - What does code-first mean?
+    + What does code-first mean?
         => CODE-FIRST
-    - {player == speaker} Hey, I'm Bittorn too!
-        Really? What a coincidence!
-    - I'm already familiar
+    + {player is speaker} Hey, I'm $speaker too!
+        [Really? What a coincidence!|You've already said that.]
+	Are you also $age years old?
+	    - Yes!
+		Cool!
+	    - No.
+		A shame.
+	> => INTRODUCTION
+    + I'm already familiar
         Great! Guess I'll take my leave then.
         => END
 
-* Let's continue.
+> Let's continue.
 
-== HOW IT WORKS
+=== HOW IT WORKS
 
 text here
 
-== CODE-FIRST
+=== CODE-FIRST
 
 text here
