@@ -42,7 +42,7 @@ func _import(source_file, save_path, options, platform_variants, gen_files):
 	while file.get_position() < file.get_length():
 		var line = file.get_line().strip_edges()
 		
-		if line.begins_with("###"):
+		if line.begins_with("///"):
 			ignore = !ignore
 		
 		if ignore:
@@ -57,7 +57,7 @@ func _import(source_file, save_path, options, platform_variants, gen_files):
 				if attempt.is_valid_int():
 					flow_file.format_version = int(attempt)
 		
-		if !(line == "" or line.begins_with("#") or ignore):
+		if !(line == "" or line.begins_with("//") or ignore):
 			text += line + "\n"
 	
 	flow_file.text = text

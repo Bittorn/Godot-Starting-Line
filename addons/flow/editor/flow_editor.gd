@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-@onready var file_dialog := EditorFileDialog.new()
+var file_dialog: EditorFileDialog
 var current_file: FlowFile
 var open_files: Array[FlowFile]
 
@@ -14,8 +14,12 @@ enum Mode {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	file_dialog.add_filter("*.flow", "Flow File")
-	file_dialog.popup_file_dialog()
+	if Engine.is_editor_hint():
+		file_dialog = EditorFileDialog.new()
+		file_dialog.add_filter("*.flow", "Flow File")
+		file_dialog.popup_file_dialog()
+	else:
+		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

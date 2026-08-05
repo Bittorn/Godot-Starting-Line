@@ -37,16 +37,16 @@ Welcome to Flow, a simple code-first dialog system.
         => INTRODUCTION
     + What does code-first mean?
         => CODE-FIRST
-    + {player is speaker} Hey, I'm $speaker too!
-        [Really? What a coincidence!|You've already said that.]
-	Are you also $age years old?
-	    - Yes!
-		Cool!
-	    - No.
-		A shame.
-	> => INTRODUCTION
-    + I'm already familiar
-        Great! Guess I'll take my leave then.
+	+ {player is speaker} Hey, I'm $speaker too!
+		[Really? What a coincidence!|You've already said that.]
+		Are you also $age years old?
+			- Yes!
+				Cool!
+			- No.
+				A shame.
+		> => INTRODUCTION
+	+ I'm already familiar
+		Great! Guess I'll take my leave then.
         => END
 
 > Let's continue.
