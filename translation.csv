@@ -1,0 +1,45 @@
+keys,_comment,en,es,ja
+MENU_TITLE,,Godot Starting Line,,
+MENU_SUBTITLE,, ,,
+MENU_PLAY,,Play,Comenzar,はじめる
+MENU_CONTINUE,,Continue,Reanudar,つづきから
+MENU,RESTART,,Restart,Nueva partida,はじめから
+MENU_PAUSED,,Paused,Pausado,ポーズ中
+MENU_SELECT,,Select,Seleccionar,決定
+MENU_MENU,,Back to Menu,Volver al título,タイトルへ
+MENU_CLOSE,,Close,Volver,もどる
+MENU_OPTIONS,,Options,Ajustes,オプション
+MENU_OPTIONS_GENERAL,,General,General,コモン
+MENU_OPTIONS_VIDEO,,Video,Video,ビデオ
+MENU_OPTIONS_CONTROLS,,Controls,Controles,コントロール
+MENU_OPTIONS_SOUND,,Sound,Sonido,サウンド
+MENU_OPTIONS_DIFFICULTY,,Difficulty,,
+MENU_OPTIONS_FULLSCREEN,,Fullscreen,Pantalla completa,フルスクリーン
+MENU_OPTIONS_VSYNC,,VSYNC,VSYNC,ＶＳＹＮＣ
+MENU_OPTIONS_SSR,,SSR,SSR,ＳＳＲ
+MENU_OPTIONS_SSAO,,SSAO,SSAO,ＳＳＡＯ
+MENU_OPTIONS_SDFGI,,Global Illumination,Iluminación global,大域照明
+MENU_OPTIONS_GLOW,CHECK,Glow,Efecto de resplandor,ハイライト
+MENU_OPTIONS_RESOLUTION,CHECK,Internal Resolution,Resolución interna,内部解像度
+MENU_OPTIONS_RESOLUTION_NATIVE,CHECK,Native Resolution,Resolución nativa,ネイティブ解像度
+MENU_OPTIONS_BRIGHTNESS,,Brightness,Ajuste de brillo,明るさ
+MENU_OPTIONS_FRAMELIMIT,,FPS Limit,Límite de FPS,ＦＰＳ制限
+MENU_OPTIONS_CRT,add 'effect',CRT,CRT,ＣＲＴ
+MENU_OPTIONS_CONTROLS_MOUSE_SENSITIVITY,Needs checking,Mouse Sensitivity,Sensibilidad del ratón,マウス感度
+MENU_OPTIONS_SOUND_MAIN,CHECK,Main,Principal,マスター
+MENU_OPTIONS_SOUND_MUSIC,,Music,Música,ＢＧＭ
+MENU_OPTIONS_SOUND_SFX,,SFX,SFX,ＳＥ
+MENU_OPTIONS_SOUND_VOICE,,Voice,Voces,ボイス
+MENU_OPTIONS_SOUND_AMBIENT,CHECK,Ambience,Ambiental,アンビアンス
+MENU_QUIT,CHECK,Quit,Cerrar,やめる
+MENU_RESUME,,Resume,Volver,もどる
+MENU_BACK,,Back,Atrás,もどる
+SOUND_TEST_MUSIC,,Test Music,Prueba la música,ＢＧＭテスト
+SOUND_TEST_SFX,,Test SFX,Prueba la SFX,ＳＥテスト
+SOUND_TEST_VOICE,,Test Voice,Prueba la voces,ボイステスト
+SOUND_TEST_AMBIENT,ES not correct,Test Ambience,Prueba la ambiental,アンビアンステスト
+CONTROLS_MOVE,,Move,Moverse,移動
+CONTROLS_JUMP,,Jump,Saltar,ジャンプ
+CONTROLS_INTERACT,,Interact,Acción,アクション
+CONTROLS_SELECT,,Select,Seleccionar,決定
+CONTROLS_BACK,,Back,Volver,もどる

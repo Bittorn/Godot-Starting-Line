@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://b3lbf3x6xtyvo"]
-
-[ext_resource type="Script" uid="uid://bv5ssawch2tfi" path="res://addons/flow/editor/flow_editor.gd" id="1_kgp0m"]
-
-[node name="FlowEditor" type="Node" unique_id=2073128390]
-script = ExtResource("1_kgp0m")

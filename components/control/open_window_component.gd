@@ -1,4 +1,5 @@
-class_name OpenWindowComponent extends ComponentControl
+class_name OpenWindowComponent
+extends ComponentControl
 
 @export var menuNode: Control
 

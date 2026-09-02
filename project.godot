@@ -21,7 +21,8 @@ config/icon="uid://bpeanp8vanedl"
 [autoload]
 
 GameManager="*res://scripts/game_manager.gd"
-FlowEditor="*uid://b3lbf3x6xtyvo"
+OptionsManager="*uid://bgs58tvq12dv0"
+AudioManager="*uid://fj8jmrnae2bo"
 
 [display]
 
@@ -31,10 +32,6 @@ window/size/mode=2
 window/size/sharp_corners=true
 window/stretch/mode="viewport"
 display_server/driver.linuxbsd="wayland"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/flow/plugin.cfg")
 
 [input]
 
