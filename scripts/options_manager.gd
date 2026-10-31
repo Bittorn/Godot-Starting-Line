@@ -1,6 +1,8 @@
 extends Node
 
+
 signal option_changed(key: Option, value: Variant)
+
 
 ## Enum of all valid option keys.
 enum Option {
@@ -25,12 +27,14 @@ enum Option {
 	AMBIENT_VOLUME,
 }
 
+
 ## Enum of all difficulty values
 enum Difficulty {
 	EASY = 0,
 	NORMAL = 1,
 	HARD = 2,
 }
+
 
 const CONFIG_PATH := "user://settings.cfg"
 const CONFIG_SECTION := "Settings"
@@ -62,14 +66,19 @@ const _DEFAULTS: Dictionary[Option, Variant] = {
 	Option.AMBIENT_VOLUME: 1.0,
 }
 
+
 ## Dictionary of dev option overrides.
 const _DEV_OVERRIDES: Dictionary[Option, Variant] = {
-	#Option.FULLSCREEN: false,
+	Option.FULLSCREEN: false,
 	Option.MOUSE_SENSITIVITY: 8.0,
 	Option.FRAMERATE_LIMIT: 120,
 	Option.MAIN_VOLUME: 0.6,
 	Option.CRT_FILTER: true,
 }
+
+
+const _DEV_IGNORE_FULLSCREEN := true
+
 
 func _ready():
 	var err: Error = config.load(CONFIG_PATH)
@@ -141,14 +150,17 @@ func get_value(key: Option) -> Variant:
 
 ## Sets fullscreen.
 func set_fullscreen(fullscreen: bool = true) -> void:
+	if _DEV_IGNORE_FULLSCREEN:
+		print("Dev ignore fullscreen: ", _DEV_IGNORE_FULLSCREEN)
+		return
+	
 	if fullscreen:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		get_window().size = get_value(Option.RESOLUTION)
-		get_window().move_to_center() # doesn't do anything in editor
-	set_value(Option.FULLSCREEN, fullscreen) # is this necessary?
+		get_window().move_to_center() # does nothing in certain environments
+	set_value(Option.FULLSCREEN, fullscreen) # for sanity
 
 
 ## Updates the game window to reflect current settings.
@@ -160,7 +172,8 @@ func update_video_settings() -> void:
 	get_window().scaling_3d_scale = get_value(Option.RESOLUTION)
 
 
-## Updates the game audio to reflect current settings.
+## Updates the game audio to reflect current settings.<br>
+## This must be changed for each project if not using default bus settings.
 func update_audio_settings() -> void:
 	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), get_value(Option.MAIN_VOLUME))
 	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Music"), get_value(Option.MUSIC_VOLUME))

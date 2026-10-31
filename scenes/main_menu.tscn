@@ -66,7 +66,17 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 64
-text = "Godot Starting Line"
+text = "MENU_TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=557629767]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -12)
+theme_override_font_sizes/font_size = 24
+text = "MENU_SUBTITLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -75,7 +85,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tbmy8")
-text = "Play"
+text = "MENU_PLAY"
 
 [node name="ChangeSceneComponent" type="Node" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/PlayButton" unique_id=1564007697]
 script = ExtResource("1_ekxnf")
@@ -86,14 +96,14 @@ layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tbmy8")
-text = "Options"
+text = "MENU_OPTIONS"
 
 [node name="QuitGameButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=2021215284]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tbmy8")
-text = "Quit Game"
+text = "MENU_QUIT"
 
 [node name="QuitGameComponent" type="Node" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/QuitGameButton" unique_id=583880476]
 script = ExtResource("2_bqqt6")

@@ -50,7 +50,7 @@ var _starting_position: Vector3
 func _ready() -> void:
 	#region Sanity checks
 	if !head:
-		head = $"../Head"
+		head = root.find_child("Head")
 	if !camera:
 		camera = head.find_child("Camera3D")
 	if !collision:
@@ -78,7 +78,7 @@ func _ready() -> void:
 	#endregion
 	
 	if !initial_state:
-		initial_state = $IdlePlayerState
+		initial_state = find_child("IdlePlayerState")
 	assert(initial_state != null, "Player must have an initial state")
 	
 	if get_tree().root.has_node("OptionsManager"):
