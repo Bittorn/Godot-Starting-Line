@@ -5,8 +5,6 @@ enum Scene {
 	MAIN_MENU,
 }
 
-var environment: WorldEnvironment
-
 var scene_to_load: Scene
 
 @onready var loading_scene = preload("res://scenes/loading.tscn")

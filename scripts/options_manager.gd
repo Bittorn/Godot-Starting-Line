@@ -39,8 +39,6 @@ enum Difficulty {
 const CONFIG_PATH := "user://settings.cfg"
 const CONFIG_SECTION := "Settings"
 
-const _BASE_RES_Y := 720
-
 var config = ConfigFile.new()
 
 ## Dictionary of default option values.
@@ -77,6 +75,7 @@ const _DEV_OVERRIDES: Dictionary[Option, Variant] = {
 }
 
 
+## Ignore fullscreen setting if dev
 const _DEV_IGNORE_FULLSCREEN := true
 
 
@@ -96,23 +95,24 @@ func _ready():
 	update_audio_settings()
 
 
-## Sets the WorldEnviroment node of GameManager to saved values
-func set_environment() -> void:
-	if not GameManager.environment:
-		push_warning("Trying to set environment values, but Environment is null")
-		return
-	
-	GameManager.environment.environment.ssr_enabled = get_value(Option.SSR)
-	GameManager.environment.environment.ssao_enabled = get_value(Option.SSAO)
-	GameManager.environment.environment.sdfgi_enabled = get_value(Option.SDFGI)
-	GameManager.environment.environment.glow_enabled = get_value(Option.GLOW)
-	
-	var brightness: float = get_value(Option.BRIGHTNESS)
-	
-	if get_value(Option.CRT_FILTER):
-		brightness += 0.1
-	
-	GameManager.environment.environment.adjustment_brightness = brightness
+## Sets the WorldEnviroment node of GameManager to saved values.<br>
+## Moving this logic to a separate component
+#func set_environment() -> void:
+	#if not GameManager.environment:
+		#push_warning("Trying to set environment values, but Environment is null")
+		#return
+	#
+	#GameManager.environment.environment.ssr_enabled = get_value(Option.SSR)
+	#GameManager.environment.environment.ssao_enabled = get_value(Option.SSAO)
+	#GameManager.environment.environment.sdfgi_enabled = get_value(Option.SDFGI)
+	#GameManager.environment.environment.glow_enabled = get_value(Option.GLOW)
+	#
+	#var brightness: float = get_value(Option.BRIGHTNESS)
+	#
+	#if get_value(Option.CRT_FILTER):
+		#brightness += 0.1
+	#
+	#GameManager.environment.environment.adjustment_brightness = brightness
 
 
 ## Sets all options to their pre-defined defaults
@@ -148,24 +148,17 @@ func get_value(key: Option) -> Variant:
 	return config.get_value(CONFIG_SECTION, Option.keys()[key])
 
 
-## Sets fullscreen.
-func set_fullscreen(fullscreen: bool = true) -> void:
-	if _DEV_IGNORE_FULLSCREEN:
-		print("Dev ignore fullscreen: ", _DEV_IGNORE_FULLSCREEN)
-		return
-	
-	if fullscreen:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		get_window().size = get_value(Option.RESOLUTION)
-		get_window().move_to_center() # does nothing in certain environments
-	set_value(Option.FULLSCREEN, fullscreen) # for sanity
-
-
 ## Updates the game window to reflect current settings.
 func update_video_settings() -> void:
-	set_fullscreen(get_value(Option.FULLSCREEN))
+	if OS.has_feature("editor") and _DEV_IGNORE_FULLSCREEN:
+		print("Dev ignore fullscreen: ", _DEV_IGNORE_FULLSCREEN)
+	else:
+		if get_value(Option.FULLSCREEN):
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			get_window().size = get_value(Option.RESOLUTION)
+			get_window().move_to_center() # does nothing in certain environments
 	
 	DisplayServer.window_set_vsync_mode(get_value(Option.VSYNC))
 	Engine.max_fps = get_value(Option.FRAMERATE_LIMIT)
@@ -187,13 +180,3 @@ func update_audio_settings() -> void:
 func update_settings() -> void:
 	update_video_settings()
 	update_audio_settings()
-
-
-## Alias for [code]set_fullscreen(false)[/code]
-func set_windowed() -> void:
-	set_fullscreen(false)
-
-
-## Toggles fullscreen mode
-func toggle_fullscreen() -> void:
-	set_fullscreen(!get_value(Option.FULLSCREEN))
